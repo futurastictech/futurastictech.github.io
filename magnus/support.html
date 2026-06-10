@@ -1,0 +1,184 @@
+﻿<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Magnus â€“ Support / Destek</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: #0a0015;
+      color: #e0d6f5;
+      line-height: 1.8;
+      padding: 40px 20px 80px;
+    }
+    .container { max-width: 760px; margin: 0 auto; }
+    h1 { font-size: 1.8rem; color: #cc88ff; margin-bottom: 8px; }
+    .subtitle { color: #9977cc; font-size: 0.9rem; margin-bottom: 12px; }
+    .intro { font-size: 0.95rem; color: #ccc0e0; margin-bottom: 36px; border-left: 3px solid #4a1a8a; padding-left: 16px; }
+    h2 { font-size: 1.05rem; color: #bb77ee; margin: 36px 0 10px; letter-spacing: 0.03em; }
+    p { margin-bottom: 14px; font-size: 0.95rem; color: #d4c8ec; }
+    a { color: #cc88ff; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .card {
+      background: #150028;
+      border: 1px solid #3a1a6a;
+      border-radius: 12px;
+      padding: 24px 28px;
+      margin: 20px 0;
+    }
+    .faq-item { margin-bottom: 28px; }
+    .faq-q { font-weight: 600; color: #cc88ff; margin-bottom: 6px; }
+    .logo { font-size: 2rem; margin-bottom: 6px; }
+    footer { margin-top: 60px; color: #6655aa; font-size: 0.82rem; text-align: center; }
+
+    /* Language selector */
+    .lang-bar {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      margin-bottom: 40px;
+    }
+    .lang-btn {
+      padding: 8px 24px;
+      border-radius: 20px;
+      border: 1.5px solid #5a2a9a;
+      background: transparent;
+      color: #9977cc;
+      font-size: 0.9rem;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .lang-btn.active {
+      background: #4a1a8a;
+      color: #fff;
+      border-color: #cc88ff;
+    }
+    .lang-section { display: none; }
+    .lang-section.active { display: block; }
+  </style>
+</head>
+<body>
+<div class="container">
+
+  <div class="logo">ğŸ”®</div>
+
+  <div class="lang-bar">
+    <button class="lang-btn active" onclick="setLang('tr')">ğŸ‡¹ğŸ‡· TÃ¼rkÃ§e</button>
+    <button class="lang-btn" onclick="setLang('en')">ğŸ‡¬ğŸ‡§ English</button>
+  </div>
+
+  <!-- TURKISH -->
+  <div class="lang-section active" id="lang-tr">
+    <h1>Magnus Destek</h1>
+    <p class="subtitle">Magnus: Rehber &amp; YaÅŸam KoÃ§u</p>
+    <p class="intro">Uygulama ile ilgili sorun yaÅŸÄ±yor veya bir sorunuz mu var? AÅŸaÄŸÄ±daki bilgilerden yardÄ±m alabilirsiniz.</p>
+
+    <h2>ğŸ“¬ Ä°letiÅŸim</h2>
+    <div class="card">
+      <p>Destek talepleriniz ve geri bildirimleriniz iÃ§in bize e-posta gÃ¶nderin:</p>
+      <p><strong><a href="mailto:futuristicapps1@gmail.com">futuristicapps1@gmail.com</a></strong></p>
+      <p>MesajÄ±nÄ±za cihaz modelinizi ve iOS sÃ¼rÃ¼mÃ¼nÃ¼zÃ¼ eklemeniz daha hÄ±zlÄ± yardÄ±m almanÄ±zÄ± saÄŸlar.</p>
+    </div>
+
+    <h2>â“ SÄ±k Sorulan Sorular</h2>
+
+    <div class="faq-item">
+      <p class="faq-q">FallarÄ±m neden gelmiyor?</p>
+      <p>Fal iÃ§erikleri belirli bir sÃ¼re sonra gelen kutunuza dÃ¼ÅŸer. GÃ¼nlÃ¼k limitinizi kullandÄ±ysanÄ±z ertesi gÃ¼n yenilenir. Ana menÃ¼deki gelen kutusu ikonunu kontrol edin.</p>
+    </div>
+    <div class="faq-item">
+      <p class="faq-q">Profilimi nasÄ±l gÃ¼ncellerim?</p>
+      <p>Ana ekranda saÄŸ Ã¼st kÃ¶ÅŸedeki ayarlar ikonuna dokunun. Profil bilgilerinizi (isim, doÄŸum tarihi, meslek vb.) buradan dÃ¼zenleyebilirsiniz.</p>
+    </div>
+    <div class="faq-item">
+      <p class="faq-q">Verilerimi nasÄ±l silerim?</p>
+      <p>Ayarlar ekranÄ±ndan <strong>Profili SÄ±fÄ±rla</strong> veya <strong>TÃ¼m FallarÄ± Sil</strong> seÃ§eneklerini kullanabilirsiniz. TÃ¼m veriler yalnÄ±zca cihazÄ±nÄ±zda saklanÄ±r.</p>
+    </div>
+    <div class="faq-item">
+      <p class="faq-q">Uygulama Ã§Ã¶kÃ¼yor, ne yapmalÄ±yÄ±m?</p>
+      <p>UygulamayÄ± tamamen kapatÄ±p yeniden aÃ§Ä±n. Sorun devam ederse kaldÄ±rÄ±p yeniden yÃ¼kleyin. Bu adÄ±mlardan sonra da sorun yaÅŸÄ±yorsanÄ±z lÃ¼tfen bizimle iletiÅŸime geÃ§in.</p>
+    </div>
+    <div class="faq-item">
+      <p class="faq-q">Magnus Ã¼cretsiz mi?</p>
+      <p>Magnus temel Ã¶zellikleriyle Ã¼cretsiz kullanÄ±labilir. BazÄ± iÃ§erikler kÄ±sa bir reklam izlendikten sonra aÃ§Ä±lÄ±r.</p>
+    </div>
+
+    <h2>âš ï¸ Ã–nemli Not</h2>
+    <div class="card">
+      <p>Magnus yalnÄ±zca <strong>eÄŸlence amaÃ§lÄ±dÄ±r</strong>. Fal yorumlarÄ±, astroloji analizleri ve tÃ¼m iÃ§erikler kurgusal ve sembolik niteliktedir; gerÃ§ek kehanet, tÄ±bbi, hukuki veya finansal tavsiye sunmaz.</p>
+    </div>
+
+    <footer>
+      &copy; 2024 Futuristic Apps &nbsp;Â·&nbsp;
+      <a href="https://futurastictech.github.io/magnus/privacy-policy.html">Gizlilik PolitikasÄ±</a> &nbsp;Â·&nbsp;
+      <a href="https://futurastictech.github.io/magnus/delete-account.html">Hesap Silme</a>
+    </footer>
+  </div>
+
+  <!-- ENGLISH -->
+  <div class="lang-section" id="lang-en">
+    <h1>Magnus Support</h1>
+    <p class="subtitle">Magnus: Guide &amp; Life Coach</p>
+    <p class="intro">Having trouble with the app or have a question? Find help below.</p>
+
+    <h2>ğŸ“¬ Contact</h2>
+    <div class="card">
+      <p>Send us an email for support requests and feedback:</p>
+      <p><strong><a href="mailto:futuristicapps1@gmail.com">futuristicapps1@gmail.com</a></strong></p>
+      <p>Including your device model and iOS version helps us assist you faster.</p>
+    </div>
+
+    <h2>â“ Frequently Asked Questions</h2>
+
+    <div class="faq-item">
+      <p class="faq-q">Why aren't my readings arriving?</p>
+      <p>Fortune content is delivered to your inbox after a short processing period. If you've reached your daily limit, it resets the next day. Check the inbox icon on the main menu.</p>
+    </div>
+    <div class="faq-item">
+      <p class="faq-q">How do I update my profile?</p>
+      <p>Tap the settings icon in the top right corner of the main screen. You can edit your profile information (name, birth date, occupation, etc.) from there.</p>
+    </div>
+    <div class="faq-item">
+      <p class="faq-q">How do I delete my data?</p>
+      <p>Use <strong>Reset Profile</strong> or <strong>Delete All Readings</strong> in the Settings screen. All data is stored locally on your device only â€” nothing is saved on our servers.</p>
+    </div>
+    <div class="faq-item">
+      <p class="faq-q">The app is crashing â€” what should I do?</p>
+      <p>Try fully closing and reopening the app. If the issue persists, uninstall and reinstall it. If you still experience problems, please contact us.</p>
+    </div>
+    <div class="faq-item">
+      <p class="faq-q">Is Magnus free?</p>
+      <p>Magnus is free to use for core features. Some content is unlocked after watching a short advertisement.</p>
+    </div>
+
+    <h2>âš ï¸ Important Notice</h2>
+    <div class="card">
+      <p>Magnus is for <strong>entertainment purposes only</strong>. Fortune readings, astrology analyses, and all content are fictional and symbolic in nature; they do not constitute genuine predictions or medical, legal, or financial advice.</p>
+    </div>
+
+    <footer>
+      &copy; 2024 Futuristic Apps &nbsp;Â·&nbsp;
+      <a href="https://futurastictech.github.io/magnus/privacy-policy.html">Privacy Policy</a> &nbsp;Â·&nbsp;
+      <a href="https://futurastictech.github.io/magnus/delete-account.html">Delete Account</a>
+    </footer>
+  </div>
+
+</div>
+
+<script>
+  function setLang(lang) {
+    document.querySelectorAll('.lang-section').forEach(s => s.classList.remove('active'));
+    document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
+    document.getElementById('lang-' + lang).classList.add('active');
+    document.querySelector('[onclick="setLang(\'' + lang + '\')"]').classList.add('active');
+  }
+
+  // Auto-detect browser language
+  const browserLang = navigator.language || navigator.userLanguage || 'tr';
+  if (!browserLang.startsWith('tr')) setLang('en');
+</script>
+</body>
+</html>
+
