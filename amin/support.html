@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Amin &ndash; Destek / Support</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: #0d1f16;
+      color: #d8f3dc;
+      line-height: 1.8;
+      padding: 40px 20px 80px;
+    }
+    .container { max-width: 760px; margin: 0 auto; }
+    h1 { font-size: 1.8rem; color: #f0d080; margin-bottom: 8px; }
+    .subtitle { color: #74c69d; font-size: 0.9rem; margin-bottom: 12px; }
+    .intro { font-size: 0.95rem; color: #b7e4c7; margin-bottom: 36px; border-left: 3px solid #2d6a4f; padding-left: 16px; }
+    h2 { font-size: 1.05rem; color: #c9a84c; margin: 36px 0 10px; letter-spacing: 0.03em; }
+    p { margin-bottom: 14px; font-size: 0.95rem; color: #d8f3dc; }
+    a { color: #f0d080; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .card {
+      background: #132b1e;
+      border: 1px solid #2d6a4f;
+      border-radius: 12px;
+      padding: 24px 28px;
+      margin: 20px 0;
+    }
+    .faq-item { margin-bottom: 28px; }
+    .faq-q { font-weight: 600; color: #f0d080; margin-bottom: 6px; }
+    .logo { font-size: 2rem; margin-bottom: 6px; }
+    footer { margin-top: 60px; color: #40916c; font-size: 0.82rem; text-align: center; }
+    .lang-bar {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      margin-bottom: 40px;
+    }
+    .lang-btn {
+      padding: 8px 24px;
+      border-radius: 20px;
+      border: 1.5px solid #40916c;
+      background: transparent;
+      color: #74c69d;
+      font-size: 0.9rem;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .lang-btn.active {
+      background: #2d6a4f;
+      color: #fff;
+      border-color: #f0d080;
+    }
+    .lang-section { display: none; }
+    .lang-section.active { display: block; }
+  </style>
+</head>
+<body>
+<div class="container">
+
+  <div class="logo">&#129335;</div>
+
+  <div class="lang-bar">
+    <button class="lang-btn active" onclick="setLang('tr')">&#127481;&#127479; T&uuml;rk&ccedil;e</button>
+    <button class="lang-btn" onclick="setLang('en')">&#127468;&#127463; English</button>
+  </div>
+
+  <!-- TURKISH -->
+  <div class="lang-section active" id="lang-tr">
+    <h1>Amin Destek</h1>
+    <p class="subtitle">Dua &amp; Zikir Sayac&#305;</p>
+    <p class="intro">Uygulama ile ilgili sorun ya&#351;&#305;yor veya bir sorunuz mu var? A&#351;a&#287;&#305;daki bilgilerden yard&#305;m alabilirsiniz.</p>
+
+    <h2>&#128236; &#304;leti&#351;im</h2>
+    <div class="card">
+      <p>Destek talepleriniz ve geri bildirimleriniz i&ccedil;in bize e-posta g&ouml;nderin:</p>
+      <p><strong><a href="mailto:futuristicapps1@gmail.com">futuristicapps1@gmail.com</a></strong></p>
+      <p>Mesaj&#305;n&#305;za cihaz modelinizi ve i&#351;letim sistemi s&uuml;r&uuml;m&uuml;n&uuml;z&uuml; eklemeniz daha h&#305;zl&#305; yard&#305;m almanizi sa&#287;lar.</p>
+    </div>
+
+    <h2>&#10067; S&#305;k Sorulan Sorular</h2>
+
+    <div class="faq-item">
+      <p class="faq-q">Say&#305;lar&#305;m kaydoluyor mu?</p>
+      <p>Evet, t&uuml;m say&#305;m verileriniz cihaz&#305;n&#305;zda yerel olarak saklan&#305;r. Uygulama kapatilsa bile say&#305;lar&#305;n&#305;z korunur.</p>
+    </div>
+    <div class="faq-item">
+      <p class="faq-q">Bir duas&#305;n&#305; s&#305;f&#305;rlamak istiyorum, nas&#305;l yapar&#305;m?</p>
+      <p>Dua sayac&#305; ekran&#305;nda ilerleme &ccedil;ubu&#287;unun alt&#305;nda yer alan &ldquo;S&#305;f&#305;rla&rdquo; veya &ldquo;Yeniden Ba&#351;la&rdquo; butonuna dokunun.</p>
+    </div>
+    <div class="faq-item">
+      <p class="faq-q">Arap&ccedil;a metin ile T&uuml;rk&ccedil;e meal aras&#305;nda nas&#305;l ge&ccedil;i&#351; yapar&#305;m?</p>
+      <p>Dua ekran&#305;ndaki kutucuğun sa&#287; &uuml;st k&ouml;&#351;esindeki <strong>AR / TR</strong> butonuna dokunun.</p>
+    </div>
+    <div class="faq-item">
+      <p class="faq-q">Zikir &ouml;zelliğini nas&#305;l kullan&#305;r&#305;m?</p>
+      <p>Ana men&uuml;den <strong>Zikirler</strong> kategorisini se&ccedil;in. Tesbih, esm&auml;&uuml;l h&uuml;sna ve g&uuml;nl&uuml;k zikirler listelenir.</p>
+    </div>
+    <div class="faq-item">
+      <p class="faq-q">Uygulama &ccedil;&ouml;k&uuml;yor, ne yapmal&#305;y&#305;m?</p>
+      <p>Uygulamay&#305; tamamen kapatıp yeniden a&ccedil;&#305;n. Sorun devam ederse kald&#305;r&#305;p yeniden y&uuml;kleyin. Bu ad&#305;mlardan sonra da sorun ya&#351;&#305;yorsan&#305;z l&uuml;tfen bizimle ileti&#351;ime ge&ccedil;in.</p>
+    </div>
+    <div class="faq-item">
+      <p class="faq-q">Amin &uuml;cretsiz mi?</p>
+      <p>Evet, Amin tamamen &uuml;cretsizdir.</p>
+    </div>
+
+    <footer>
+      &copy; 2025 Futuristic Apps &nbsp;&middot;&nbsp;
+      <a href="https://futurastictech.github.io/amin/">Ana Sayfa</a>
+    </footer>
+  </div>
+
+  <!-- ENGLISH -->
+  <div class="lang-section" id="lang-en">
+    <h1>Amin Support</h1>
+    <p class="subtitle">Prayer &amp; Dhikr Counter</p>
+    <p class="intro">Having trouble with the app or have a question? Find help below.</p>
+
+    <h2>&#128236; Contact</h2>
+    <div class="card">
+      <p>Send us an email for support requests and feedback:</p>
+      <p><strong><a href="mailto:futuristicapps1@gmail.com">futuristicapps1@gmail.com</a></strong></p>
+      <p>Including your device model and OS version helps us assist you faster.</p>
+    </div>
+
+    <h2>&#10067; Frequently Asked Questions</h2>
+
+    <div class="faq-item">
+      <p class="faq-q">Are my counts saved?</p>
+      <p>Yes, all your count data is stored locally on your device. Your counts are preserved even when the app is closed.</p>
+    </div>
+    <div class="faq-item">
+      <p class="faq-q">How do I reset a prayer count?</p>
+      <p>On the prayer counter screen, tap the &ldquo;Reset&rdquo; or &ldquo;Start Over&rdquo; button below the progress bar.</p>
+    </div>
+    <div class="faq-item">
+      <p class="faq-q">How do I switch between Arabic text and Turkish meaning?</p>
+      <p>Tap the <strong>AR / TR</strong> button in the top-right corner of the prayer card.</p>
+    </div>
+    <div class="faq-item">
+      <p class="faq-q">How do I use the Dhikr feature?</p>
+      <p>Select the <strong>Dhikr</strong> category from the main menu. Tasbih, Asma&rsquo;ul Husna and daily remembrances are listed there.</p>
+    </div>
+    <div class="faq-item">
+      <p class="faq-q">The app is crashing &mdash; what should I do?</p>
+      <p>Try fully closing and reopening the app. If the issue persists, uninstall and reinstall it. If you still experience problems, please contact us.</p>
+    </div>
+    <div class="faq-item">
+      <p class="faq-q">Is Amin free?</p>
+      <p>Yes, Amin is completely free.</p>
+    </div>
+
+    <footer>
+      &copy; 2025 Futuristic Apps &nbsp;&middot;&nbsp;
+      <a href="https://futurastictech.github.io/amin/">Home</a>
+    </footer>
+  </div>
+
+</div>
+
+<script>
+  function setLang(lang) {
+    document.querySelectorAll('.lang-section').forEach(s => s.classList.remove('active'));
+    document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
+    document.getElementById('lang-' + lang).classList.add('active');
+    document.querySelector('[onclick="setLang(\'' + lang + '\')"]').classList.add('active');
+  }
+  const browserLang = navigator.language || navigator.userLanguage || 'tr';
+  if (!browserLang.startsWith('tr')) setLang('en');
+</script>
+</body>
+</html>
