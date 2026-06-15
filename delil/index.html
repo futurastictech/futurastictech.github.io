@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DEL&Icirc;L &ndash; Allah&rsquo;&#305;n Varl&#305;&#287;&#305;n&#305;n Delilleri</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: #0D0B2B;
+      color: #E8E6F0;
+      line-height: 1.8;
+    }
+    .hero {
+      text-align: center;
+      padding: 60px 20px 50px;
+      background: linear-gradient(180deg, #1a1740 0%, #0D0B2B 100%);
+    }
+    .logo { font-size: 4rem; margin-bottom: 16px; }
+    h1 { font-size: 2.2rem; color: #D4A017; margin-bottom: 10px; letter-spacing: 0.06em; }
+    .tagline { font-size: 1.1rem; color: #8A8AA0; margin-bottom: 28px; }
+    .badges { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+    .badge {
+      display: inline-block;
+      background: rgba(212,160,23,0.1);
+      border: 1px solid rgba(212,160,23,0.35);
+      border-radius: 8px;
+      padding: 10px 22px;
+      color: #D4A017;
+      font-size: 0.9rem;
+      font-weight: 600;
+    }
+    .container { max-width: 800px; margin: 0 auto; padding: 40px 20px 80px; }
+    h2 { font-size: 1.05rem; color: #D4A017; margin: 40px 0 14px; letter-spacing: 0.04em; }
+    .features { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; margin: 20px 0; }
+    .feature {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(212,160,23,0.2);
+      border-radius: 12px;
+      padding: 20px;
+    }
+    .feature-icon { font-size: 1.6rem; margin-bottom: 8px; }
+    .feature-title { font-weight: 600; color: #D4A017; margin-bottom: 4px; font-size: 0.95rem; }
+    .feature-desc { font-size: 0.88rem; color: #8A8AA0; }
+    .store-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: #D4A017;
+      color: #0D0B2B;
+      font-weight: 800;
+      font-size: 15px;
+      padding: 14px 32px;
+      border-radius: 50px;
+      text-decoration: none;
+      letter-spacing: 0.5px;
+      margin: 8px;
+      transition: opacity 0.2s;
+    }
+    .store-btn:hover { opacity: 0.85; }
+    .store-btns { text-align: center; margin: 40px 0; }
+    footer { color: #3A3A5A; font-size: 0.82rem; text-align: center; padding: 20px; }
+    footer a { color: #D4A017; text-decoration: none; }
+    footer a:hover { text-decoration: underline; }
+    .lang-bar { display: flex; justify-content: center; gap: 12px; padding: 24px 20px 0; }
+    .lang-btn {
+      padding: 8px 24px;
+      border-radius: 20px;
+      border: 1.5px solid rgba(212,160,23,0.4);
+      background: transparent;
+      color: #8A8AA0;
+      font-size: 0.9rem;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .lang-btn.active { background: rgba(212,160,23,0.15); color: #D4A017; border-color: #D4A017; }
+    .lang-section { display: none; }
+    .lang-section.active { display: block; }
+  </style>
+</head>
+<body>
+
+  <div class="lang-bar">
+    <button class="lang-btn active" onclick="setLang('tr')">&#127481;&#127479; T&uuml;rk&ccedil;e</button>
+    <button class="lang-btn" onclick="setLang('en')">&#127468;&#127463; English</button>
+  </div>
+
+  <!-- TURKISH -->
+  <div class="lang-section active" id="lang-tr">
+    <div class="hero">
+      <div class="logo">&#128218;</div>
+      <h1>DEL&Icirc;L</h1>
+      <p class="tagline">Allah&rsquo;&#305;n varl&#305;&#287;&#305;n&#305;n felsefi, bilimsel ve tarihsel delilleri</p>
+      <div class="badges">
+        <span class="badge">&#128241; iOS &amp; Android</span>
+        <span class="badge">&#127481;&#127479; T&uuml;rk&ccedil;e</span>
+        <span class="badge">&#128268; &Ccedil;evrimd&#305;&#351;&#305;</span>
+      </div>
+    </div>
+    <div class="container">
+      <h2>&#10024; &Ouml;ZELL&Icirc;KLER</h2>
+      <div class="features">
+        <div class="feature">
+          <div class="feature-icon">&#128218;</div>
+          <div class="feature-title">117+ Delil</div>
+          <div class="feature-desc">Kozmolojik, ontolojik, teleolojik ve daha pek &ccedil;ok felsefi delil</div>
+        </div>
+        <div class="feature">
+          <div class="feature-icon">&#10024;</div>
+          <div class="feature-title">Mucizeler</div>
+          <div class="feature-desc">Kur&rsquo;an ve Peygamber mucizelerini kart tabanlı arayüzle keşfet</div>
+        </div>
+        <div class="feature">
+          <div class="feature-icon">&#128172;</div>
+          <div class="feature-title">Cevaplar</div>
+          <div class="feature-desc">S&#305;k&ccedil;a y&ouml;neltilen itirazlara kapsaml&#305; apolejetik cevaplar</div>
+        </div>
+        <div class="feature">
+          <div class="feature-icon">&#128483;</div>
+          <div class="feature-title">S&ouml;zler</div>
+          <div class="feature-desc">&Ouml;nemli d&uuml;&#351;&uuml;n&uuml;rler ve filozoflardan Allah&rsquo;a dair al&#305;nt&#305;lar</div>
+        </div>
+        <div class="feature">
+          <div class="feature-icon">&#128269;</div>
+          <div class="feature-title">4 Mod&uuml;lde Arama</div>
+          <div class="feature-desc">T&uuml;m delil, mucize, cevap ve s&ouml;zlerde e&#351; zamanl&#305; arama</div>
+        </div>
+        <div class="feature">
+          <div class="feature-icon">&#128268;</div>
+          <div class="feature-title">&Ccedil;evrimd&#305;&#351;&#305;</div>
+          <div class="feature-desc">T&uuml;m i&ccedil;erik cihaz&#305;nda saklan&#305;r, internet gerektirmez</div>
+        </div>
+      </div>
+      <div class="store-btns">
+        <a class="store-btn" href="https://play.google.com/store/apps/details?id=com.delilapp.delil">&#9654; Google Play&rsquo;de &Uuml;cretsiz &Icirc;ndir</a>
+      </div>
+      <footer>
+        &copy; 2026 Futurastic Tech. Ltd &nbsp;&middot;&nbsp;
+        <a href="support.html">Destek</a> &nbsp;&middot;&nbsp;
+        <a href="privacy-policy.html">Gizlilik Politikas&#305;</a>
+      </footer>
+    </div>
+  </div>
+
+  <!-- ENGLISH -->
+  <div class="lang-section" id="lang-en">
+    <div class="hero">
+      <div class="logo">&#128218;</div>
+      <h1>DEL&Icirc;L</h1>
+      <p class="tagline">Philosophical, scientific and historical evidence for the existence of God</p>
+      <div class="badges">
+        <span class="badge">&#128241; iOS &amp; Android</span>
+        <span class="badge">&#127481;&#127479; Turkish</span>
+        <span class="badge">&#128268; Offline</span>
+      </div>
+    </div>
+    <div class="container">
+      <h2>&#10024; FEATURES</h2>
+      <div class="features">
+        <div class="feature">
+          <div class="feature-icon">&#128218;</div>
+          <div class="feature-title">117+ Arguments</div>
+          <div class="feature-desc">Cosmological, ontological, teleological and many more philosophical proofs</div>
+        </div>
+        <div class="feature">
+          <div class="feature-icon">&#10024;</div>
+          <div class="feature-title">Miracles</div>
+          <div class="feature-desc">Explore Quranic and prophetic miracles with a card-based interface</div>
+        </div>
+        <div class="feature">
+          <div class="feature-icon">&#128172;</div>
+          <div class="feature-title">Responses</div>
+          <div class="feature-desc">Comprehensive apologetic answers to common objections</div>
+        </div>
+        <div class="feature">
+          <div class="feature-icon">&#128483;</div>
+          <div class="feature-title">Quotes</div>
+          <div class="feature-desc">Quotes about God from notable thinkers and philosophers</div>
+        </div>
+        <div class="feature">
+          <div class="feature-icon">&#128269;</div>
+          <div class="feature-title">Search All Modules</div>
+          <div class="feature-desc">Simultaneous search across all proofs, miracles, responses and quotes</div>
+        </div>
+        <div class="feature">
+          <div class="feature-icon">&#128268;</div>
+          <div class="feature-title">Offline</div>
+          <div class="feature-desc">All content stored on your device &mdash; no internet required</div>
+        </div>
+      </div>
+      <div class="store-btns">
+        <a class="store-btn" href="https://play.google.com/store/apps/details?id=com.delilapp.delil">&#9654; Download Free on Google Play</a>
+      </div>
+      <footer>
+        &copy; 2026 Futurastic Tech. Ltd &nbsp;&middot;&nbsp;
+        <a href="support.html">Support</a> &nbsp;&middot;&nbsp;
+        <a href="privacy-policy.html">Privacy Policy</a>
+      </footer>
+    </div>
+  </div>
+
+<script>
+  function setLang(lang) {
+    document.querySelectorAll('.lang-section').forEach(s => s.classList.remove('active'));
+    document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
+    document.getElementById('lang-' + lang).classList.add('active');
+    document.querySelector('[onclick="setLang(\'' + lang + '\')"]').classList.add('active');
+  }
+  const browserLang = navigator.language || navigator.userLanguage || 'tr';
+  if (!browserLang.startsWith('tr')) setLang('en');
+</script>
+</body>
+</html>
