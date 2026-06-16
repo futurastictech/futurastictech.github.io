@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SnapIQ &ndash; Refleks, Zamanlama &amp; Odak Testi</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: #050A14;
+      color: #d6e6f5;
+      line-height: 1.8;
+    }
+    .hero {
+      text-align: center;
+      padding: 60px 20px 50px;
+      background: linear-gradient(180deg, #0d1b2e 0%, #050A14 100%);
+    }
+    .logo { font-size: 4rem; margin-bottom: 16px; }
+    h1 { font-size: 2.2rem; color: #00B4FF; margin-bottom: 10px; letter-spacing: 0.04em; text-shadow: 0 0 24px rgba(0,180,255,0.45); }
+    .tagline { font-size: 1.1rem; color: #7fb5d8; margin-bottom: 28px; }
+    .badges { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+    .badge {
+      display: inline-block;
+      background: #0D1B2A;
+      border: 1px solid #1E5A82;
+      border-radius: 8px;
+      padding: 10px 22px;
+      color: #00B4FF;
+      font-size: 0.9rem;
+      font-weight: 600;
+    }
+    .container { max-width: 800px; margin: 0 auto; padding: 40px 20px 80px; }
+    h2 { font-size: 1.15rem; color: #BB86FC; margin: 40px 0 14px; }
+    .features { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; margin: 20px 0; }
+    .feature {
+      background: #0D1B2A;
+      border: 1px solid #1b3a52;
+      border-radius: 12px;
+      padding: 20px;
+    }
+    .feature-icon { font-size: 1.6rem; margin-bottom: 8px; }
+    .feature-title { font-weight: 600; color: #00E5FF; margin-bottom: 4px; font-size: 0.95rem; }
+    .feature-desc { font-size: 0.88rem; color: #8aa9c2; }
+    footer { color: #5a7a96; font-size: 0.82rem; text-align: center; padding: 20px; }
+    footer a { color: #00B4FF; text-decoration: none; }
+    footer a:hover { text-decoration: underline; }
+    .lang-bar {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      padding: 24px 20px 0;
+    }
+    .lang-btn {
+      padding: 8px 24px;
+      border-radius: 20px;
+      border: 1.5px solid #1E5A82;
+      background: transparent;
+      color: #7fb5d8;
+      font-size: 0.9rem;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .lang-btn.active {
+      background: #0E3A57;
+      color: #fff;
+      border-color: #00B4FF;
+    }
+    .lang-section { display: none; }
+    .lang-section.active { display: block; }
+  </style>
+</head>
+<body>
+
+  <div class="lang-bar">
+    <button class="lang-btn active" onclick="setLang('tr')">&#127481;&#127479; T&uuml;rk&ccedil;e</button>
+    <button class="lang-btn" onclick="setLang('en')">&#127468;&#127463; English</button>
+  </div>
+
+  <!-- TURKISH -->
+  <div class="lang-section active" id="lang-tr">
+    <div class="hero">
+      <div class="logo">&#129504;</div>
+      <h1>SnapIQ</h1>
+      <p class="tagline">Refleks, Zamanlama &amp; Odak Testi</p>
+      <div class="badges">
+        <span class="badge">&#128241; iOS &amp; Android</span>
+        <span class="badge">&#127481;&#127479; T&uuml;rk&ccedil;e &amp; &#127468;&#127463; English</span>
+        <span class="badge">&#10024; &Uuml;cretsiz</span>
+      </div>
+    </div>
+    <div class="container">
+      <h2>&#10024; &Ouml;zellikler</h2>
+      <div class="features">
+        <div class="feature">
+          <div class="feature-icon">&#129504;</div>
+          <div class="feature-title">Tam Test</div>
+          <div class="feature-desc">29 testlik zincirle SnapIQ skorunu ve bili&#351;sel ya&#351;&#305;n&#305; ke&#351;fet.</div>
+        </div>
+        <div class="feature">
+          <div class="feature-icon">&#9889;</div>
+          <div class="feature-title">Refleks Oyunlar&#305;</div>
+          <div class="feature-desc">15 mini oyun: dokun, ka&ccedil;, hedefle ve an&#305;nda tepki ver.</div>
+        </div>
+        <div class="feature">
+          <div class="feature-icon">&#127919;</div>
+          <div class="feature-title">Odak &amp; Dikkat</div>
+          <div class="feature-desc">Stroop, renk pani&#287;i ve hedef bulma ile dikkatini &ouml;l&ccedil;.</div>
+        </div>
+        <div class="feature">
+          <div class="feature-icon">&#129513;</div>
+          <div class="feature-title">Haf&#305;za &amp; &Ouml;r&uuml;nt&uuml;</div>
+          <div class="feature-desc">Haf&#305;za kutular&#305;, s&#305;ra ezberleme ve pattern IQ testleri.</div>
+        </div>
+        <div class="feature">
+          <div class="feature-icon">&#127942;</div>
+          <div class="feature-title">Skor &amp; Seviye</div>
+          <div class="feature-desc">XP, seviyeler, ba&#351;ar&#305;mlar ve k&uuml;resel s&#305;ralama.</div>
+        </div>
+        <div class="feature">
+          <div class="feature-icon">&#128293;</div>
+          <div class="feature-title">Manyak Mod</div>
+          <div class="feature-desc">Daha zor, daha h&#305;zl&#305;: kendini ger&ccedil;ekten zorla.</div>
+        </div>
+      </div>
+      <footer>
+        &copy; 2026 Futuristic Apps &nbsp;&middot;&nbsp;
+        <a href="https://futurastictech.github.io/snapiq/support.html">Destek</a>
+        &nbsp;&middot;&nbsp;
+        <a href="https://futurastictech.github.io/snapiq/privacy-policy.html">Gizlilik</a>
+      </footer>
+    </div>
+  </div>
+
+  <!-- ENGLISH -->
+  <div class="lang-section" id="lang-en">
+    <div class="hero">
+      <div class="logo">&#129504;</div>
+      <h1>SnapIQ</h1>
+      <p class="tagline">Reflex, Timing &amp; Focus Test</p>
+      <div class="badges">
+        <span class="badge">&#128241; iOS &amp; Android</span>
+        <span class="badge">&#127481;&#127479; Turkish &amp; &#127468;&#127463; English</span>
+        <span class="badge">&#10024; Free</span>
+      </div>
+    </div>
+    <div class="container">
+      <h2>&#10024; Features</h2>
+      <div class="features">
+        <div class="feature">
+          <div class="feature-icon">&#129504;</div>
+          <div class="feature-title">Full Test</div>
+          <div class="feature-desc">Discover your SnapIQ score and cognitive age through a 29-test chain.</div>
+        </div>
+        <div class="feature">
+          <div class="feature-icon">&#9889;</div>
+          <div class="feature-title">Reflex Games</div>
+          <div class="feature-desc">15 mini-games: tap, dodge, aim and react in a snap.</div>
+        </div>
+        <div class="feature">
+          <div class="feature-icon">&#127919;</div>
+          <div class="feature-title">Focus &amp; Attention</div>
+          <div class="feature-desc">Measure your attention with Stroop, color panic and target finding.</div>
+        </div>
+        <div class="feature">
+          <div class="feature-icon">&#129513;</div>
+          <div class="feature-title">Memory &amp; Pattern</div>
+          <div class="feature-desc">Memory boxes, sequence recall and pattern IQ tests.</div>
+        </div>
+        <div class="feature">
+          <div class="feature-icon">&#127942;</div>
+          <div class="feature-title">Score &amp; Level</div>
+          <div class="feature-desc">XP, levels, achievements and a global ranking.</div>
+        </div>
+        <div class="feature">
+          <div class="feature-icon">&#128293;</div>
+          <div class="feature-title">Ultra Hard</div>
+          <div class="feature-desc">Harder and faster &mdash; truly challenge yourself.</div>
+        </div>
+      </div>
+      <footer>
+        &copy; 2026 Futuristic Apps &nbsp;&middot;&nbsp;
+        <a href="https://futurastictech.github.io/snapiq/support.html">Support</a>
+        &nbsp;&middot;&nbsp;
+        <a href="https://futurastictech.github.io/snapiq/privacy-policy.html">Privacy</a>
+      </footer>
+    </div>
+  </div>
+
+<script>
+  function setLang(lang) {
+    document.querySelectorAll('.lang-section').forEach(s => s.classList.remove('active'));
+    document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
+    document.getElementById('lang-' + lang).classList.add('active');
+    document.querySelector('[onclick="setLang(\'' + lang + '\')"]').classList.add('active');
+  }
+  const browserLang = navigator.language || navigator.userLanguage || 'tr';
+  if (!browserLang.startsWith('tr')) setLang('en');
+</script>
+</body>
+</html>
