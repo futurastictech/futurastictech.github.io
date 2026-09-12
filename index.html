@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Futurastic</title>
+<meta name="description" content="Futurastic'in App Store ve Google Play'deki tüm uygulamaları ve oyunları, tek sayfada.">
+<meta property="og:title" content="Futurastic">
+<meta property="og:description" content="App Store ve Google Play'deki tüm uygulamalarımız, tek sayfada.">
+<meta property="og:type" content="website">
+<link rel="icon" href="icons/magnus.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;700&family=Manrope:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+
+<style>
+  /* A night sky with brass instruments. The studio's oldest and largest app reads
+     star charts, so the page is lit the way a planetarium is: a deep indigo ground,
+     warm brass for anything engraved, and one cold aurora green for anything you
+     can press. Committed to a single dark world on purpose, so every colour below
+     is painted rather than inherited. */
+  :root {
+    --night:   #0b0d18;
+    --deep:    #121729;
+    --slate:   #1c2238;
+    --edge:    #2b3250;
+    --mist:    #9aa4c4;
+    --paper:   #eef1fa;
+    --brass:   #e0a94a;
+    --aurora:  #5ce1c8;
+
+    --display: "Unbounded", "Trebuchet MS", sans-serif;
+    --body:    "Manrope", "Segoe UI", system-ui, sans-serif;
+    --mono:    "IBM Plex Mono", "Consolas", monospace;
+
+    --measure: 68rem;
+  }
+
+  * { box-sizing: border-box; }
+
+  html { -webkit-text-size-adjust: 100%; }
+
+  body {
+    margin: 0;
+    background: var(--night);
+    color: var(--paper);
+    font-family: var(--body);
+    font-size: 17px;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  a { color: inherit; }
+
+  .wrap {
+    width: min(100% - 2.5rem, var(--measure));
+    margin-inline: auto;
+  }
+
+  /* ---- hero -------------------------------------------------------------- */
+
+  header.hero {
+    position: relative;
+    overflow: hidden;
+    border-bottom: 1px solid var(--edge);
+    background:
+      radial-gradient(120% 90% at 78% -10%, rgba(224,169,74,0.16) 0%, rgba(11,13,24,0) 58%),
+      radial-gradient(90% 70% at 10% 0%, rgba(92,225,200,0.10) 0%, rgba(11,13,24,0) 55%),
+      var(--deep);
+  }
+
+  #sky {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    display: block;
+  }
+
+  .hero .wrap {
+    position: relative;
+    padding: 4.5rem 0 3.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.4rem;
+  }
+
+  .eyebrow {
+    font-family: var(--mono);
+    font-size: 0.78rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--brass);
+    margin: 0;
+  }
+
+  h1 {
+    margin: 0;
+    font-family: var(--display);
+    font-weight: 700;
+    font-size: clamp(2.7rem, 11vw, 5.6rem);
+    line-height: 0.95;
+    letter-spacing: -0.02em;
+    text-wrap: balance;
+    background: linear-gradient(112deg, var(--paper) 18%, var(--brass) 88%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .lede {
+    margin: 0;
+    max-width: 38ch;
+    font-size: 1.12rem;
+    color: var(--mist);
+  }
+
+  .tally {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem 2.4rem;
+    margin-top: 0.4rem;
+    padding-top: 1.4rem;
+    border-top: 1px solid var(--edge);
+    font-family: var(--mono);
+    font-size: 0.9rem;
+    color: var(--mist);
+  }
+  .tally b {
+    color: var(--paper);
+    font-weight: 500;
+    font-variant-numeric: tabular-nums;
+  }
+
+  /* ---- store sections ---------------------------------------------------- */
+
+  main { padding-bottom: 5rem; }
+
+  section.store { padding-top: 3.6rem; }
+
+  .store-head {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 0.5rem 1rem;
+    padding-bottom: 1.1rem;
+    border-bottom: 1px solid var(--edge);
+  }
+
+  .store-head h2 {
+    margin: 0;
+    font-family: var(--display);
+    font-weight: 500;
+    font-size: clamp(1.5rem, 5vw, 2rem);
+    letter-spacing: -0.01em;
+  }
+
+  .count {
+    font-family: var(--mono);
+    font-size: 0.85rem;
+    color: var(--brass);
+    font-variant-numeric: tabular-nums;
+  }
+
+  .store-head .all {
+    margin-left: auto;
+    font-family: var(--mono);
+    font-size: 0.82rem;
+    color: var(--mist);
+    text-decoration: none;
+    border-bottom: 1px solid var(--edge);
+    padding-bottom: 2px;
+    transition: color 160ms ease, border-color 160ms ease;
+  }
+  .store-head .all:hover { color: var(--aurora); border-color: var(--aurora); }
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(15.5rem, 1fr));
+    gap: 1rem;
+    margin-top: 1.6rem;
+    padding: 0;
+    list-style: none;
+  }
+
+  /* The card is the link. Nothing inside it competes for the tap. */
+  .app {
+    display: grid;
+    grid-template-columns: 4.5rem 1fr;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.9rem;
+    background: var(--slate);
+    border: 1px solid var(--edge);
+    border-radius: 14px;
+    text-decoration: none;
+    transition: border-color 180ms ease, transform 180ms ease, background 180ms ease;
+  }
+  .app:hover, .app:focus-visible {
+    border-color: var(--aurora);
+    background: #212944;
+    transform: translateY(-2px);
+    outline: none;
+  }
+  .app:focus-visible { box-shadow: 0 0 0 2px var(--aurora); }
+
+  .app img {
+    width: 4.5rem;
+    height: 4.5rem;
+    border-radius: 12px;
+    display: block;
+    background: var(--deep);
+  }
+
+  .app .name {
+    font-weight: 700;
+    font-size: 1.02rem;
+    line-height: 1.25;
+    margin: 0 0 0.22rem;
+  }
+
+  .app .meta {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: var(--mono);
+    font-size: 0.74rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--mist);
+  }
+
+  /* Only ever set on an app that is genuinely missing from the other store.
+     It is a fact about where you can get the app, not an ornament. */
+  .only {
+    color: var(--brass);
+    border: 1px solid rgba(224,169,74,0.42);
+    border-radius: 999px;
+    padding: 0.08rem 0.46rem;
+    font-size: 0.68rem;
+  }
+
+  footer {
+    border-top: 1px solid var(--edge);
+    padding: 2.2rem 0 3rem;
+    font-family: var(--mono);
+    font-size: 0.8rem;
+    color: var(--mist);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem 1.6rem;
+  }
+  footer a { color: var(--mist); text-decoration: none; border-bottom: 1px solid var(--edge); }
+  footer a:hover { color: var(--aurora); }
+
+
+  /* The repository already carries a landing, privacy and support page for six of
+     the apps. They are listed plainly rather than as cards: someone reaches for
+     these when something has gone wrong, and they should be easy to scan, not
+     browsed. */
+  .pages {
+    list-style: none;
+    margin: 1.4rem 0 0;
+    padding: 0;
+    display: grid;
+    gap: 0.1rem;
+  }
+  .pages li {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 0.4rem 1.1rem;
+    padding: 0.7rem 0;
+    border-bottom: 1px solid var(--edge);
+  }
+  .pages .who { font-weight: 700; min-width: 12rem; }
+  .pages a {
+    font-family: var(--mono);
+    font-size: 0.8rem;
+    color: var(--mist);
+    text-decoration: none;
+    border-bottom: 1px solid var(--edge);
+  }
+  .pages a:hover { color: var(--aurora); border-color: var(--aurora); }
+
+  @media (prefers-reduced-motion: reduce) {
+    .app { transition: none; }
+    #sky { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <canvas id="sky" aria-hidden="true"></canvas>
+  <div class="wrap">
+    <p class="eyebrow">Uygulama ve oyun stüdyosu</p>
+    <h1>Futurastic</h1>
+    <p class="lede">Yayında olan her şey burada. Kartın üstüne dokun, doğrudan mağazadaki sayfasına gider.</p>
+    <div class="tally">
+      <span>App Store <b id="ios-count">0</b></span>
+      <span>Google Play <b id="android-count">0</b></span>
+      <span>Toplam <b id="total-count">0</b> uygulama</span>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+  <section class="store">
+    <div class="store-head">
+      <h2>App Store</h2>
+      <span class="count" id="ios-label"></span>
+      <a class="all" href="https://apps.apple.com/developer/id1612979370">Geliştirici sayfası</a>
+    </div>
+    <ul class="grid" id="ios-grid"></ul>
+  </section>
+
+  <section class="store">
+    <div class="store-head">
+      <h2>Google Play</h2>
+      <span class="count" id="android-label"></span>
+      <a class="all" href="https://play.google.com/store/apps/developer?id=Futurastic+Teknoloji+Limited+%C5%9Eirketi">Geliştirici sayfası</a>
+    </div>
+    <ul class="grid" id="android-grid"></ul>
+  </section>
+
+  <section class="store" id="support">
+    <div class="store-head">
+      <h2>Destek ve gizlilik</h2>
+      <span class="count" id="support-label"></span>
+    </div>
+    <ul class="pages" id="support-list"></ul>
+  </section>
+</main>
+
+<footer class="wrap">
+  <span>Futurastic Teknoloji Limited Şirketi</span>
+  <a href="https://apps.apple.com/developer/id1612979370">App Store</a>
+  <a href="https://play.google.com/store/apps/developer?id=Futurastic+Teknoloji+Limited+%C5%9Eirketi">Google Play</a>
+</footer>
+
+<script>
+  // One list, two stores. An app that is missing an id for a store simply does not
+  // appear in that store's grid, so adding a release later is one line here.
+  var APPS = [
+    { name: "Magnus: Astrology & Tarot", slug: "magnus",         genre: "Yaşam tarzı", ios: "1612979368", android: "com.futurastic.Magnus" },
+    { name: "Oyuncu Dükkanı",            slug: "oyuncu-dukkani", genre: "Oyun",        ios: "6778437262", android: "com.oyuncudukkani.app" },
+    { name: "Matematikçik",              slug: "matematikcik",   genre: "Eğitim",      ios: "6779563082", android: "com.matematikcik.app" },
+    { name: "Amin",                      slug: "amin",           genre: "Başvuru",     ios: "6779628851", android: "com.amin.amin" },
+    { name: "Perfumella",                slug: "perfumella",     genre: "Yaşam tarzı", ios: "6783397859", android: "com.perfumator.app" },
+    { name: "Delil: Allah'ın Delilleri", slug: "delil",          genre: "Başvuru",     ios: "6780416985", android: "com.delilapp.delil" },
+    { name: "Snapiq",                    slug: "snapiq",         genre: "Oyun",        ios: "6780837725", android: "com.snapiq.app" },
+    { name: "Acemi Şef",                 slug: "acemi-sef",      genre: "Oyun",        ios: "6810176972", android: null },
+    { name: "Brakeless: Endless Race",   slug: "brakeless",      genre: "Oyun",        ios: "6450942732", android: null },
+    { name: "Yalancı Falcı",             slug: "yalanci-falci",  genre: "Yaşam tarzı", ios: "6448210215", android: null }
+  ];
+
+  function card(app, store) {
+    var href = store === "ios"
+      ? "https://apps.apple.com/app/id" + app.ios
+      : "https://play.google.com/store/apps/details?id=" + app.android;
+
+    var item = document.createElement("li");
+    var link = document.createElement("a");
+    link.className = "app";
+    link.href = href;
+    link.rel = "noopener";
+
+    var icon = document.createElement("img");
+    icon.src = "icons/" + app.slug + ".jpg";
+    icon.alt = app.name + " simgesi";
+    icon.loading = "lazy";
+    icon.width = 72;
+    icon.height = 72;
+
+    var text = document.createElement("div");
+    var title = document.createElement("p");
+    title.className = "name";
+    title.textContent = app.name;
+
+    var meta = document.createElement("div");
+    meta.className = "meta";
+    var genre = document.createElement("span");
+    genre.textContent = app.genre;
+    meta.appendChild(genre);
+
+    // Say so when an app is on one store only. Someone on the wrong phone should
+    // find that out here rather than after a trip to the store.
+    if (store === "ios" && !app.android) {
+      var badge = document.createElement("span");
+      badge.className = "only";
+      badge.textContent = "Sadece iOS";
+      meta.appendChild(badge);
+    }
+
+    text.appendChild(title);
+    text.appendChild(meta);
+    link.appendChild(icon);
+    link.appendChild(text);
+    item.appendChild(link);
+    return item;
+  }
+
+  var iosGrid = document.getElementById("ios-grid");
+  var androidGrid = document.getElementById("android-grid");
+  var iosCount = 0, androidCount = 0;
+
+  APPS.forEach(function (app) {
+    if (app.ios) { iosGrid.appendChild(card(app, "ios")); iosCount++; }
+    if (app.android) { androidGrid.appendChild(card(app, "android")); androidCount++; }
+  });
+
+  document.getElementById("ios-count").textContent = iosCount;
+  document.getElementById("android-count").textContent = androidCount;
+  document.getElementById("total-count").textContent = APPS.length;
+  document.getElementById("ios-label").textContent = iosCount + " uygulama";
+  document.getElementById("android-label").textContent = androidCount + " uygulama";
+
+
+  // Six of the apps have their own pages in this same site. Listed from one place
+  // so a new folder is one word here rather than a block of markup.
+  var PAGES = {
+    magnus: "magnus", matematikcik: "matematikcik", amin: "amin",
+    perfumella: "perfumator", delil: "delil", snapiq: "snapiq"
+  };
+
+  var supportList = document.getElementById("support-list");
+  var supported = 0;
+
+  APPS.forEach(function (app) {
+    var folder = PAGES[app.slug];
+    if (!folder) return;
+    supported++;
+
+    var li = document.createElement("li");
+    var who = document.createElement("span");
+    who.className = "who";
+    who.textContent = app.name;
+    li.appendChild(who);
+
+    [["Tanıtım", ""], ["Gizlilik", "privacy-policy.html"], ["Destek", "support.html"]]
+      .forEach(function (pair) {
+        var a = document.createElement("a");
+        a.href = folder + "/" + pair[1];
+        a.textContent = pair[0];
+        li.appendChild(a);
+      });
+
+    supportList.appendChild(li);
+  });
+
+  document.getElementById("support-label").textContent = supported + " uygulama";
+
+  // A slow drift of stars behind the name. Canvas rather than a hundred absolutely
+  // positioned dots, and it stops entirely for anyone who asked for less motion.
+  (function () {
+    var canvas = document.getElementById("sky");
+    if (!canvas || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
+    var ctx = canvas.getContext("2d");
+    var stars = [];
+    var ratio = Math.min(window.devicePixelRatio || 1, 2);
+
+    function size() {
+      var box = canvas.parentElement.getBoundingClientRect();
+      canvas.width = Math.round(box.width * ratio);
+      canvas.height = Math.round(box.height * ratio);
+
+      stars = [];
+      var count = Math.round(box.width * box.height / 9000);
+      for (var i = 0; i < count; i++) {
+        stars.push({
+          x: Math.random() * canvas.width,
+          y: Math.random() * canvas.height,
+          r: (Math.random() * 1.1 + 0.3) * ratio,
+          drift: (Math.random() * 0.06 + 0.02) * ratio,
+          phase: Math.random() * Math.PI * 2
+        });
+      }
+    }
+
+    function frame(now) {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      for (var i = 0; i < stars.length; i++) {
+        var s = stars[i];
+        s.x -= s.drift;
+        if (s.x < -2) s.x = canvas.width + 2;
+
+        var twinkle = 0.35 + 0.35 * Math.sin(now / 1400 + s.phase);
+        ctx.globalAlpha = twinkle;
+        ctx.fillStyle = i % 9 === 0 ? "#e0a94a" : "#cdd6f0";
+        ctx.beginPath();
+        ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2);
+        ctx.fill();
+      }
+      ctx.globalAlpha = 1;
+      requestAnimationFrame(frame);
+    }
+
+    size();
+    window.addEventListener("resize", size);
+    requestAnimationFrame(frame);
+  })();
+</script>
+</body>
+</html>
