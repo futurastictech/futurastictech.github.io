@@ -1,4 +1,5 @@
 # magnus (Android) — com.magnus.magnus
 # matematikcik (Android) — com.matematikcik.matematikcik
 # amin (Android) — com.amin.amin
+# beles (iOS + Android) — com.futurastic.Beles / com.beles.beles
 google.com, pub-6470338276121414, DIRECT, f08c47fec0942fa0
