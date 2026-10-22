@@ -178,6 +178,20 @@
   addEventListener("scroll", fallbackLock, { passive: true });
   showLock(0);
 
+  // ------------------------------------------------------- phone menu
+  var menuBtn = document.querySelector(".menu-btn");
+  var menu = document.getElementById("mobile-menu");
+  function setMenu(open) {
+    menu.hidden = !open;
+    menuBtn.setAttribute("aria-expanded", String(open));
+    menuBtn.querySelector(".menu-btn__label").textContent = open ? "Kapat" : "Menü";
+    document.documentElement.classList.toggle("has-menu", open);
+    if (open) menu.querySelector("a").focus();
+  }
+  menuBtn.addEventListener("click", function () { setMenu(menu.hidden); });
+  menu.addEventListener("click", function (e) { if (e.target.closest("a")) setMenu(false); });
+  addEventListener("keydown", function (e) { if (e.key === "Escape" && !menu.hidden) { setMenu(false); menuBtn.focus(); } });
+
   // --------------------------------------------------------- nav current
   var navLinks = Array.prototype.slice.call(document.querySelectorAll(".bar__nav a"));
   if ("IntersectionObserver" in window) {
@@ -218,7 +232,7 @@
     var act = document.getElementById("detail-actions");
     act.textContent = "";
     if (a.play) {
-      var pb = el("button", "cta cta--play", "Tarayıcıda oyna");
+      var pb = el("button", "cta cta--play", a.kind === "oyun" ? "Tarayıcıda oyna" : "Tarayıcıda aç");
       pb.type = "button";
       pb.addEventListener("click", function () { startPlay(a); });
       act.appendChild(pb);
@@ -245,8 +259,20 @@
     document.documentElement.classList.add("has-dialog");
     if (!fromHash) history.replaceState(null, "", "#oyun/" + a.slug);
   }
+  // Opening a web version: when ads are configured, an ad break (Google's H5
+  // games Ad Placement API) runs first and the game loads when it is done or
+  // when no ad was available. Without ads the game loads straight away.
   function startPlay(a) {
-    frame.src = a.play;
+    var boot = document.getElementById("player-boot");
+    boot.hidden = false;
+    document.getElementById("player-boot-text").textContent = a.name + " yükleniyor";
+    frame.onload = function () { if (frame.src !== "about:blank") boot.hidden = true; };
+    var load = function () { if (!player.hidden) frame.src = a.play; };
+    if (window.adBreak) {
+      safeBreak({ type: "start", name: "play-" + a.slug }, load);
+    } else {
+      load();
+    }
     player.hidden = false;
     dlg.classList.add("is-playing");
     // The details panel (and the heading the dialog is named by) is hidden
@@ -283,6 +309,46 @@
   window.FT_openDetail = openDetail;
   setTimeout(fromHash, 0);
 
+  // ------------------------------------------------- game ad bridge
+  // The web builds run same-origin in the player iframe and ask the site for
+  // ads where the mobile builds show AdMob: parent.ftAdBreak("interstitial")
+  // at the same moments as the app's interstitials, parent.ftAdBreak("reward")
+  // where the app offers a rewarded ad. Resolves to { shown, rewarded }.
+  // With no ad available a reward is still granted, so the game never stalls.
+  // An ad break that always finishes: if no ad has started within 3 seconds
+  // (script blocked, not approved yet, offline) the game carries on.
+  function safeBreak(opts, done) {
+    var finished = false, started = false;
+    var finish = function (info) { if (finished) return; finished = true; done(info || { breakStatus: "timeout" }); };
+    var timer = setTimeout(function () { if (!started) finish(); }, 3000);
+    opts.beforeAd = function () { started = true; clearTimeout(timer); };
+    opts.adBreakDone = function (info) { clearTimeout(timer); finish(info); };
+    window.adBreak(opts);
+  }
+
+  window.ftAdBreak = function (kind, name) {
+    return new Promise(function (resolve) {
+      var label = (name || kind || "break").replace(/[^\w-]/g, "-").slice(0, 40);
+      if (!window.adBreak) { resolve({ shown: false, rewarded: kind === "reward" }); return; }
+      var earned = false;
+      if (kind === "reward") {
+        safeBreak({
+          type: "reward", name: label,
+          beforeReward: function (showAdFn) { showAdFn(); },
+          adViewed: function () { earned = true; },
+          adDismissed: function () { earned = false; }
+        }, function (info) {
+          var none = info.breakStatus !== "viewed" && info.breakStatus !== "dismissed";
+          resolve({ shown: !none, rewarded: earned || none });
+        });
+      } else {
+        safeBreak({ type: "next", name: label }, function (info) {
+          resolve({ shown: info.breakStatus === "viewed", rewarded: false });
+        });
+      }
+    });
+  };
+
   // --------------------------------------------------------------- ads
   // AdSense is loaded only when a publisher id is configured in apps.js.
   var ADS = window.FT_ADS || {};
@@ -291,7 +357,13 @@
     s.async = true;
     s.src = "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=" + encodeURIComponent(ADS.client);
     s.crossOrigin = "anonymous";
+    // Ad Placement API for the web games: an ad break before each game starts.
+    s.setAttribute("data-ad-frequency-hint", ADS.frequency || "120s");
+    if (ADS.test) s.setAttribute("data-adbreak-test", "on");
     document.head.appendChild(s);
+    window.adsbygoogle = window.adsbygoogle || [];
+    window.adBreak = window.adConfig = function (o) { window.adsbygoogle.push(o); };
+    window.adConfig({ preloadAdBreaks: "on", sound: "on" });
     Array.prototype.forEach.call(document.querySelectorAll("[data-ad]"), function (box) {
       var slot = ADS.slots && ADS.slots[box.getAttribute("data-ad")];
       if (!slot) return;

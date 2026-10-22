@@ -46,7 +46,21 @@
     <a href="#google-play">Google Play</a>
     <a href="#destek">Destek</a>
   </nav>
+  <!-- Phones get the whole map behind one button instead of a squeezed bar. -->
+  <button class="menu-btn" type="button" aria-expanded="false" aria-controls="mobile-menu">
+    <span class="menu-btn__lines" aria-hidden="true"></span><span class="menu-btn__label">Menü</span>
+  </button>
 </header>
+<nav class="mobile-menu" id="mobile-menu" aria-label="Site menüsü" hidden>
+  <a href="#galaksi">Galaksi</a>
+  <a href="#app-store">App Store</a>
+  <a href="#google-play">Google Play</a>
+  <a href="#destek">Destek ve gizlilik</a>
+  <div class="mobile-menu__stores">
+    <a class="cta" href="https://apps.apple.com/developer/id1612979370" rel="noopener">App Store</a>
+    <a class="cta cta--ghost" href="https://play.google.com/store/apps/developer?id=Futurastic+Teknoloji+Limited+%C5%9Eirketi" rel="noopener">Google Play</a>
+  </div>
+</nav>
 
 <main id="top">
 
@@ -205,7 +219,12 @@
     <p class="detail__pages" id="detail-pages"></p>
   </div>
   <div class="player" id="player" hidden>
-    <iframe id="player-frame" title="Tarayıcıda oyna" allow="fullscreen; autoplay" loading="lazy"></iframe>
+    <div class="player__screen">
+      <iframe id="player-frame" title="Tarayıcıda oyna" allow="fullscreen; autoplay; gamepad" loading="lazy"></iframe>
+      <div class="player__boot" id="player-boot"><span class="lock__dot"></span><span id="player-boot-text">Yükleniyor</span></div>
+    </div>
+    <!-- Banner beside the running game; stays empty until FT_ADS is set. -->
+    <aside class="ad ad--player" data-ad="player" hidden aria-label="Reklam"></aside>
     <button class="detail__close player__close" type="button" data-close-player aria-label="Oyunu kapat">✕</button>
   </div>
 </dialog>

@@ -429,3 +429,81 @@ html.has-dialog { overflow: hidden; }
   box-shadow: 0 20px 50px -20px rgba(0,0,0,0.9);
 }
 .no-webgl .reticle__icon[src=""] { display: none; }
+
+/* ----------------------------------------------------- web game player -- */
+.player { display: flex; }
+.player__screen { position: relative; flex: 1 1 auto; min-width: 0; background: #000; }
+.player__screen iframe { position: absolute; inset: 0; }
+.player__boot {
+  position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; gap: 0.6rem;
+  font-family: var(--sc-font-mono); font-size: 0.8rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--sc-accent);
+  pointer-events: none;
+}
+.player__boot[hidden] { display: none; }
+.player__boot .lock__dot { animation: boot-pulse 1s ease-in-out infinite alternate; }
+@keyframes boot-pulse { to { opacity: 0.25; } }
+.ad--player { flex: 0 0 300px; padding: 3.5rem 1rem 1rem; background: #05060c; }
+.detail.is-playing:has(.ad--player:not([hidden])) { width: min(62rem, 100vw); }
+@media (max-width: 900px) { .ad--player { display: none; } }
+@media (prefers-reduced-motion: reduce) { .player__boot .lock__dot { animation: none; } }
+
+/* ------------------------------------------------------------ phone menu -- */
+.menu-btn { display: none; }
+.mobile-menu[hidden] { display: none; }
+@media (max-width: 760px) {
+  .bar__nav { display: none; }
+  .menu-btn {
+    display: inline-flex; align-items: center; gap: 0.6rem;
+    min-height: 44px; padding: 0 0.9rem 0 0.8rem; margin-right: -0.4rem;
+    border: 1px solid var(--edge); border-radius: 999px;
+    background: rgba(5,6,12,0.6); color: var(--sc-ink); cursor: pointer;
+    font-family: var(--sc-font-mono); font-size: 0.74rem; letter-spacing: 0.1em; text-transform: uppercase;
+    backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+  }
+  .menu-btn__lines, .menu-btn__lines::before { display: block; width: 16px; height: 1.5px; background: var(--sc-accent); }
+  .menu-btn__lines { position: relative; transform: translateY(-3px); }
+  .menu-btn__lines::before { content: ""; position: absolute; top: 6px; }
+  .menu-btn[aria-expanded="true"] .menu-btn__lines { transform: rotate(45deg); }
+  .menu-btn[aria-expanded="true"] .menu-btn__lines::before { top: 0; transform: rotate(-90deg); }
+  .mobile-menu {
+    position: fixed; inset: 0; z-index: 19;
+    display: flex; flex-direction: column; justify-content: center; gap: 0.2rem;
+    padding: calc(var(--bar-h) + 1rem) var(--sc-gutter) 2rem;
+    background: rgba(4,5,11,0.94);
+    backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+  }
+  .mobile-menu > a {
+    font-family: var(--sc-font-display); font-weight: 600; font-size: 2rem; letter-spacing: -0.02em;
+    text-decoration: none; padding: 0.55rem 0; border-bottom: 1px solid var(--edge);
+  }
+  .mobile-menu > a:active { color: var(--sc-accent); }
+  .mobile-menu__stores { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-top: 2rem; }
+  html.has-menu { overflow: hidden; }
+}
+
+/* Compact phones (360 x 640 and below): tighter type and a shorter hero. */
+@media (max-width: 380px), (max-height: 680px) and (max-width: 760px) {
+  .hero__title { font-size: 2.6rem; }
+  .hero__lede { font-size: 1rem; }
+  .tally { margin-top: var(--sc-5); }
+  .tally dd { font-size: 1.4rem; }
+  .manifesto__line { font-size: 1.75rem; }
+  .lock { padding: 0.8rem 0.9rem; }
+  .lock__name { font-size: 1.2rem; }
+  .lock__blurb { display: none; }
+  .mobile-menu > a { font-size: 1.6rem; }
+}
+
+/* Phones: the full name stays, the menu button drops its word so both fit. */
+@media (max-width: 760px) {
+  .bar { gap: 0.75rem; }
+  .mark { min-width: 0; font-size: 0.82rem; }
+  .mark span { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .menu-btn { flex: 0 0 auto; width: 44px; justify-content: center; padding: 0; margin-right: 0; }
+  .menu-btn__label { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+}
+
+/* The copy scrim reaches past the hero's edges on purpose; clip it there so a
+   phone never lays the page out wider than the screen. */
+.hero { overflow-x: clip; }
+html { overflow-x: clip; }

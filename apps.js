@@ -107,4 +107,9 @@ window.FT_APPS.forEach(function (a) {
 // Web ads. Google AdSense, not AdMob: AdMob only serves inside apps. Leave
 // client null and every ad slot stays out of the page. Once AdSense approves
 // this site, put the "ca-pub-..." id here and the ad unit ids in slots.
-window.FT_ADS = { client: null, slots: { galaxy: null, stores: null } };
+window.FT_ADS = {
+  client: "ca-pub-6470338276121414",  // same publisher as AdMob (app-ads.txt)
+  test: false,           // true shows Google test ads in the game breaks
+  frequency: "120s",     // minimum time between two game ad breaks
+  slots: { stores: null, player: null }  // display ad unit ids
+};
