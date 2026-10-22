@@ -159,7 +159,7 @@ function start() {
   APPS.forEach((app, i) => {
     const tex = loader.load(app.icon);
     tex.colorSpace = THREE.SRGBColorSpace;
-    tex.anisotropy = 4;
+    tex.anisotropy = renderer.capabilities.getMaxAnisotropy();
     const group = new THREE.Group();
     const face = new THREE.Mesh(
       new THREE.PlaneGeometry(1, 1),
@@ -293,6 +293,9 @@ function start() {
     mark.rotation.y = Math.sin(time * 0.4) * 0.45 + pointer.x * 0.3 + flip + (s > 1 && s < 2 ? (s - 1) * Math.PI * 2 : 0);
     mark.rotation.x = Math.sin(time * 0.3) * 0.08 - pointer.y * 0.12;
     mark.position.y = lerp("my") + Math.sin(time * 0.8) * 0.08;
+    const nearMark = Math.max(0.15, Math.min(1, (camera.position.distanceTo(mark.position) - 3.5) / 4));
+    edges.material.opacity = 0.9 * nearMark;
+    key.intensity = 30 * nearMark;
     key.position.set(Math.cos(time * 0.7) * 4, 2.2, Math.sin(time * 0.7) * 4 + 2);
 
     // Rings: gyrating in the open, flung wide in the manifesto, and locked
