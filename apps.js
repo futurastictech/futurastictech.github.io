@@ -10,7 +10,7 @@
 window.FT_APPS = [
   {
     name: "Go Go La", slug: "go-go-la", kind: "oyun", genre: "Aksiyon",
-    ios: null, android: "com.gogola.gogola", isNew: true,
+    ios: null, android: "com.gogola.gogola", isNew: true, play: "play/go-go-la/",
     blurb: "Tek parmakla oynanan, birinci şahıs 3D zindan nişancısı.",
     desc: "Karanlık koridorlar, üstüne gelen yaratıklar ve elinde tek bir silah. Go Go La'da tek parmakla nişan alıp ateş ediyor, zindanın derinine indikçe zorlaşan dalgalara göğüs geriyorsun.",
     shots: ["go-go-la-1", "go-go-la-2", "go-go-la-3"]
