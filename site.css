@@ -507,3 +507,23 @@ html.has-dialog { overflow: hidden; }
    phone never lays the page out wider than the screen. */
 .hero { overflow-x: clip; }
 html { overflow-x: clip; }
+
+/* The game gets the whole frame below a thin title strip, so the close button
+   never sits on top of the game's own corner controls. */
+.player { flex-wrap: wrap; align-content: stretch; }
+.player__title {
+  flex: 1 0 100%; height: 52px; margin: 0; padding: 0 4rem 0 1.1rem;
+  display: flex; align-items: center;
+  font-family: var(--sc-font-display); font-weight: 600; font-size: 0.95rem;
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+  background: #05060c; border-bottom: 1px solid var(--edge);
+}
+.player__screen { height: calc(100% - 52px); }
+.ad--player { height: calc(100% - 52px); padding-top: 1rem; }
+.player__close { top: 4px; right: 6px; }
+.player__screen { flex: 1 1 0%; }
+/* Title strip on top, game (and the optional ad column) below. */
+.player { display: grid; grid-template-rows: 52px minmax(0, 1fr); grid-template-columns: minmax(0, 1fr) auto; }
+.player__title { grid-column: 1 / -1; height: auto; }
+.player__screen, .ad--player { height: auto; }
+.ad--player { width: 300px; }

@@ -30,28 +30,28 @@ window.FT_APPS = [
     shots: ["jin-1", "jin-2", "jin-3"]
   },
   {
-    name: "Acemi Şef", slug: "acemi-sef", kind: "oyun", genre: "Simülasyon",
+    name: "Acemi Şef", slug: "acemi-sef", kind: "oyun", genre: "Simülasyon", play: "play/acemi-sef/",
     ios: "6810176972", android: "com.acemisef.acemisef",
     blurb: "Küçük bir sokak tezgâhıyla başla, mutfağını büyüt.",
     desc: "Müşteri gelir, yemeğini ister. Malzemeleri kâseye at, pişiriciyi seç, tabağı servis et. Memnuniyet ne kadar yüksekse kazanç o kadar büyük. Gün sonunda giderleri öde, tezgâhını büyüt.",
     shots: ["acemi-sef-1", "acemi-sef-2", "acemi-sef-3"]
   },
   {
-    name: "Oyuncu Dükkanı", slug: "oyuncu-dukkani", kind: "oyun", genre: "Simülasyon",
+    name: "Oyuncu Dükkanı", slug: "oyuncu-dukkani", kind: "oyun", genre: "Simülasyon", play: "play/oyuncu-dukkani/",
     ios: "6778437262", android: "com.oyuncudukkani.app",
     blurb: "Oyun dükkânını yönet: al, sat, pazarlık et.",
     desc: "Oyun CD'leri, konsollar ve oyuncu ekipmanları al-sat. Müşterilerle pazarlık et, kasayı doldur, kira gününü atlat. Dükkânını geliştir, zengin ol.",
     shots: ["oyuncu-dukkani-1", "oyuncu-dukkani-2", "oyuncu-dukkani-3"]
   },
   {
-    name: "Snapiq", slug: "snapiq", kind: "oyun", genre: "Refleks",
+    name: "Snapiq", slug: "snapiq", kind: "oyun", genre: "Refleks", play: "play/snapiq/",
     ios: "6780837725", android: "com.snapiq.app", pages: "snapiq",
     blurb: "Onlarca mini oyunla reflekslerini sına.",
     desc: "Ne kadar hızlı, ne kadar keskin olduğunu onlarca kısa oyunla ölç. Her gün yeniden dene, rekorunu kır.",
     shots: ["snapiq-1", "snapiq-2", "snapiq-3"]
   },
   {
-    name: "Matematikçik", slug: "matematikcik", kind: "oyun", genre: "Eğitim",
+    name: "Matematikçik", slug: "matematikcik", kind: "oyun", genre: "Eğitim", play: "play/matematikcik/",
     ios: "6779563082", android: "com.matematikcik.app", pages: "matematikcik",
     blurb: "Hesap yaparken eğlen, eğlenirken öğren.",
     desc: "Toplama, çıkarma, çarpma, bölme ve daha fazlası. Her yaştan oyuncu için hızlı turlar, artan zorluk ve hesap yapmayı oyuna çeviren küçük bir uygulama.",
@@ -79,14 +79,14 @@ window.FT_APPS = [
     shots: ["perfumella-1", "perfumella-2", "perfumella-3"]
   },
   {
-    name: "Delil: Allah'ın Delilleri", slug: "delil", kind: "uygulama", genre: "Başvuru",
+    name: "Delil: Allah'ın Delilleri", slug: "delil", kind: "uygulama", genre: "Başvuru", play: "play/delil/",
     ios: "6780416985", android: "com.delilapp.delil", pages: "delil",
     blurb: "Tefekküre davet eden deliller, kart kart.",
     desc: "Allah'ın varlığına dair deliller, Kur'an mucizeleri ve zor sorulara verilen cevaplar kartlar halinde. Bilimden felsefeye, ahlaktan evrenin düzenine uzanan bir tefekkür uygulaması.",
     shots: ["delil-1", "delil-2", "delil-3"]
   },
   {
-    name: "Amin", slug: "amin", kind: "uygulama", genre: "Başvuru",
+    name: "Amin", slug: "amin", kind: "uygulama", genre: "Başvuru", play: "play/amin/",
     ios: "6779628851", android: "com.amin.amin", pages: "amin",
     blurb: "Dualar, tesbihler ve zikirmatik.",
     desc: "Sıkıntına özel dualar, tesbihler ve zikirler; Türkçe meal ve Arapça okunuşlarıyla, faziletlerine göre gruplanmış. Okuduklarının sayısını zikirmatikle tut.",

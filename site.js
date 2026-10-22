@@ -266,6 +266,7 @@
     var boot = document.getElementById("player-boot");
     boot.hidden = false;
     document.getElementById("player-boot-text").textContent = a.name + " yükleniyor";
+    document.getElementById("player-title").textContent = a.name;
     frame.onload = function () { if (frame.src !== "about:blank") boot.hidden = true; };
     var load = function () { if (!player.hidden) frame.src = a.play; };
     if (window.adBreak) {
