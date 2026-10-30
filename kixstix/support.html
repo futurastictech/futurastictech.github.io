@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KixStix &ndash; Destek / Support</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: #0d1f16;
+      color: #d8f3dc;
+      line-height: 1.8;
+      padding: 40px 20px 80px;
+    }
+    .container { max-width: 760px; margin: 0 auto; }
+    h1 { font-size: 1.8rem; color: #f0d080; margin-bottom: 8px; }
+    .subtitle { color: #74c69d; font-size: 0.9rem; margin-bottom: 12px; }
+    .intro { font-size: 0.95rem; color: #b7e4c7; margin-bottom: 36px; border-left: 3px solid #2d6a4f; padding-left: 16px; }
+    h2 { font-size: 1.05rem; color: #c9a84c; margin: 36px 0 10px; letter-spacing: 0.03em; }
+    p { margin-bottom: 14px; font-size: 0.95rem; color: #d8f3dc; }
+    a { color: #f0d080; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .card {
+      background: #132b1e;
+      border: 1px solid #2d6a4f;
+      border-radius: 12px;
+      padding: 24px 28px;
+      margin: 20px 0;
+    }
+    .faq-item { margin-bottom: 28px; }
+    .faq-q { font-weight: 600; color: #f0d080; margin-bottom: 6px; }
+    .logo { font-size: 2rem; margin-bottom: 6px; }
+    footer { margin-top: 60px; color: #40916c; font-size: 0.82rem; text-align: center; }
+    .lang-bar {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      margin-bottom: 40px;
+    }
+    .lang-btn {
+      padding: 8px 24px;
+      border-radius: 20px;
+      border: 1.5px solid #40916c;
+      background: transparent;
+      color: #74c69d;
+      font-size: 0.9rem;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .lang-btn.active {
+      background: #2d6a4f;
+      color: #fff;
+      border-color: #f0d080;
+    }
+    .lang-section { display: none; }
+    .lang-section.active { display: block; }
+  </style>
+</head>
+<body>
+<div class="container">
+
+  <div class="logo">&#129335;</div>
+
+  <div class="lang-bar">
+    <button class="lang-btn active" onclick="setLang('tr')">&#127481;&#127479; T&uuml;rk&ccedil;e</button>
+    <button class="lang-btn" onclick="setLang('en')">&#127468;&#127463; English</button>
+  </div>
+
+  <!-- TURKISH -->
+  <div class="lang-section active" id="lang-tr">
+    <h1>KixStix Destek</h1>
+    <p class="subtitle">Neon Çöp Adam Dövüşü</p>
+    <p class="intro">Bir sorun mu yaşıyorsun ya da sorun mu var? Aşağıdaki bilgiler yardımcı olabilir.</p>
+    <h2>&#128236; İletişim</h2>
+    <div class="card">
+      <p>Destek ve geri bildirim için e-posta gönder:</p>
+      <p><strong><a href="mailto:futuristicapps1@gmail.com">futuristicapps1@gmail.com</a></strong></p>
+      <p>Cihaz modelini ve işletim sistemi sürümünü yazman daha hızlı yardım almanı sağlar.</p>
+    </div>
+    <h2>&#10067; Sık Sorulan Sorular</h2>
+    <div class="faq-item"><p class="faq-q">İlerlemem kaydoluyor mu?</p><p>Evet. Bölümler, yıldızlar, mürekkep ve geliştirmeler cihazında yerel olarak saklanır. Uygulamayı silersen ilerleme de silinir.</p></div>
+    <div class="faq-item"><p class="faq-q">Ölünce neden 1. bölüme dönüyorum?</p><p>MACERA koşuları tek canla oynanır. Rekorun, yıldızların, mürekkebin ve açtığın teknikler korunur. Koşu başına bir kez reklam izleyerek kaldığın yerden devam edebilirsin.</p></div>
+    <div class="faq-item"><p class="faq-q">Hareketleri nasıl öğrenirim?</p><p>Ana menüdeki "Hareketler" ve "Pratik yap" bölümlerinde tüm teknikler ve bir deneme alanı var.</p></div>
+    <div class="faq-item"><p class="faq-q">"Reklamları Kaldır" satın almam geri gelmedi.</p><p>Ayarlar ekranında "Satın alımları geri yükle" düğmesine dokun. Aynı mağaza hesabıyla giriş yaptığından emin ol.</p></div>
+    <div class="faq-item"><p class="faq-q">Kan efektlerini kapatabilir miyim?</p><p>Evet. Ayarlar ekranından kan ve parçalanma efektlerini azaltabilir ya da tamamen kapatabilirsin.</p></div>
+    <div class="faq-item"><p class="faq-q">Oyun takılıyor ya da çöküyor.</p><p>Uygulamayı tamamen kapatıp yeniden aç. Eski cihazlarda Ayarlar'dan kaliteyi düşürmek yardımcı olur. Sorun sürerse bize yaz.</p></div>
+    <footer>
+      &copy; 2026 Futurastic Technology &nbsp;&middot;&nbsp;
+      <a href="https://futurastictech.github.io/kixstix/privacy-policy.html">Gizlilik</a>
+      &nbsp;&middot;&nbsp;
+      <a href="https://futurastictech.github.io/kixstix/support.html">Destek</a>
+    </footer>
+  </div>
+
+  <!-- ENGLISH -->
+  <div class="lang-section" id="lang-en">
+    <h1>KixStix Support</h1>
+    <p class="subtitle">Neon Stickman Fighting</p>
+    <p class="intro">Having trouble or a question? The answers below may help.</p>
+    <h2>&#128236; Contact</h2>
+    <div class="card">
+      <p>Email us for support and feedback:</p>
+      <p><strong><a href="mailto:futuristicapps1@gmail.com">futuristicapps1@gmail.com</a></strong></p>
+      <p>Including your device model and OS version helps us help you faster.</p>
+    </div>
+    <h2>&#10067; Frequently Asked Questions</h2>
+    <div class="faq-item"><p class="faq-q">Is my progress saved?</p><p>Yes. Stages, stars, ink and upgrades are stored locally on your device. Deleting the app deletes your progress.</p></div>
+    <div class="faq-item"><p class="faq-q">Why do I go back to stage 1 when I die?</p><p>ADVENTURE runs are one-life runs. Your record, stars, ink and unlocked techniques are kept. Once per run you can watch an ad to continue where you fell.</p></div>
+    <div class="faq-item"><p class="faq-q">How do I learn the moves?</p><p>Open "Moves" and "Practice" from the main menu for every technique and a training area.</p></div>
+    <div class="faq-item"><p class="faq-q">My Remove Ads purchase is missing.</p><p>Tap "Restore purchases" in Settings, signed in with the same store account.</p></div>
+    <div class="faq-item"><p class="faq-q">Can I turn off blood effects?</p><p>Yes. Settings lets you reduce or fully disable blood and dismemberment effects.</p></div>
+    <div class="faq-item"><p class="faq-q">The game stutters or crashes.</p><p>Fully close and reopen the app. Lowering quality in Settings helps on older devices. If it continues, email us.</p></div>
+    <footer>
+      &copy; 2026 Futurastic Technology &nbsp;&middot;&nbsp;
+      <a href="https://futurastictech.github.io/kixstix/privacy-policy.html">Privacy</a>
+      &nbsp;&middot;&nbsp;
+      <a href="https://futurastictech.github.io/kixstix/support.html">Support</a>
+    </footer>
+  </div>
+
+</div>
+
+<script>
+  function setLang(lang) {
+    document.querySelectorAll('.lang-section').forEach(s => s.classList.remove('active'));
+    document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
+    document.getElementById('lang-' + lang).classList.add('active');
+    document.querySelector('[onclick="setLang(\'' + lang + '\')"]').classList.add('active');
+  }
+  const browserLang = navigator.language || navigator.userLanguage || 'tr';
+  if (!browserLang.startsWith('tr')) setLang('en');
+</script>
+</body>
+</html>
