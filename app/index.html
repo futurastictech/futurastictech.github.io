@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Futurastic · Oyunlar ve Uygulamalar</title>
+<meta name="description" content="Futurastic Technologies oyunları ve uygulamaları: dokun, mağazada aç.">
+<meta name="theme-color" content="#0d0b1a">
+<style>
+:root{--bg:#0d0b1a;--card:#1a1730;--card2:#221e3d;--fg:#f4f2ff;--mut:#a9a3c9;--acc:#8b7cff;--ok:#38d39f}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.4 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+body{padding:max(20px,env(safe-area-inset-top)) 16px max(28px,env(safe-area-inset-bottom));
+  background:radial-gradient(120% 60% at 50% 0%,#2a2160 0%,var(--bg) 60%) fixed}
+main{max-width:520px;margin:0 auto}
+header{text-align:center;margin:8px 0 22px}
+header h1{font-size:22px;letter-spacing:.08em;margin:0}
+header p{color:var(--mut);margin:6px 0 0;font-size:14px}
+h2{font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:var(--mut);margin:26px 4px 10px}
+.app{display:flex;align-items:center;gap:14px;background:var(--card);border-radius:18px;padding:12px;margin:0 0 10px;
+  text-decoration:none;color:inherit;border:1px solid transparent;transition:transform .12s ease-out,background .12s}
+.app:active{transform:scale(.97);background:var(--card2)}
+.app.hl{border-color:var(--acc);box-shadow:0 0 0 3px rgba(139,124,255,.25)}
+.app img{width:60px;height:60px;border-radius:14px;flex:none}
+.t{flex:1;min-width:0}
+.t b{display:block;font-size:16px}
+.t span{display:block;color:var(--mut);font-size:13px;margin-top:2px}
+.go{flex:none;background:var(--acc);color:#fff;font-weight:600;font-size:14px;padding:9px 14px;border-radius:999px;white-space:nowrap}
+.go.off{background:transparent;color:var(--mut);border:1px solid #3a355e;font-weight:500;font-size:12px}
+.both{display:flex;gap:6px;flex:none}
+.both a{background:var(--acc);color:#fff;font-weight:600;font-size:12px;padding:8px 10px;border-radius:999px;text-decoration:none}
+.both a.off{display:none}
+footer{text-align:center;color:var(--mut);font-size:12px;margin-top:28px}
+footer a{color:var(--mut)}
+@media (prefers-reduced-motion:reduce){.app{transition:none}}
+</style>
+</head>
+<body>
+<main>
+  <header>
+    <h1>FUTURASTIC</h1>
+    <p>Oyunlar ve uygulamalar · dokun, mağazada açılsın</p>
+  </header>
+  <div id="list"></div>
+  <footer><a href="../">futurastictech.github.io</a></footer>
+</main>
+<script>
+// ios: App Store id, android: Play package. Store status checked 2026-11-23.
+var APPS = [
+  {k:"oyun", s:"yalanci", n:"Yalancı: Bilgi Yarışması", d:"Doğru mu yalan mı? Her soruya 10 saniye.", ios:"6448210215", and:"com.futurastic.magnusjet"},
+  {k:"oyun", s:"acemisef", n:"Acemi Şef", d:"Yemek yap, sat, mutfağını büyüt.", ios:"6810176972", and:"com.acemisef.acemisef"},
+  {k:"oyun", s:"kixstix", n:"KixStix", d:"Tek parmak, 60 hareket: stickman dövüşü.", ios:"6825799555", and:"com.futurastic.kixstix"},
+  {k:"oyun", s:"hooop", n:"Hooop!", d:"Zıpla, düşme: tek dokunuşla platform.", ios:"6827739095", and:"com.futurastic.hooop"},
+  {k:"oyun", s:"gogola", n:"Go Go La", d:"Tek parmakla 3D zindan nişancısı.", ios:null, and:"com.gogola.gogola"},
+  {k:"oyun", s:"gamesomnia", n:"Gamesomnia", d:"80+ internetsiz mini oyun.", ios:null, and:"com.beles.beles"},
+  {k:"oyun", s:"matematikcik", n:"Matematikçik", d:"Hesap yaparken eğlen.", ios:"6779563082", and:"com.matematikcik.app"},
+  {k:"oyun", s:"snapiq", n:"SnapIQ", d:"Onlarca mini oyunla refleks testi.", ios:"6780837725", and:"com.snapiq.app"},
+  {k:"oyun", s:"oyuncudukkani", n:"Oyuncu Dükkanı", d:"Al, sat, pazarlık et.", ios:"6778437262", and:"com.oyuncudukkani.app"},
+  {k:"uygulama", s:"amin", n:"Amin", d:"Dualar, tesbihler ve zikirmatik.", ios:"6779628851", and:"com.amin.amin"},
+  {k:"uygulama", s:"delil", n:"Delil", d:"Tefekküre davet eden kartlar.", ios:"6780416985", and:"com.delilapp.delil"},
+  {k:"uygulama", s:"perfumella", n:"Perfumella", d:"Sevdiğin notalardan kokunu bul.", ios:"6783397859", and:"com.perfumator.app"}
+];
+var ua = navigator.userAgent || "";
+var isIOS = /iPhone|iPad|iPod/i.test(ua) || (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1);
+var isAnd = /Android/i.test(ua);
+function ios(a){ return "https://apps.apple.com/tr/app/id" + a.ios; }
+function gp(a){ return "https://play.google.com/store/apps/details?id=" + a.and; }
+function esc(t){ return t.replace(/[&<>"]/g, function(c){ return {"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;"}[c]; }); }
+function row(a){
+  var head = '<img src="i/' + a.s + '.jpg" alt="" width="60" height="60" loading="lazy"><div class="t"><b>' + esc(a.n) + '</b><span>' + esc(a.d) + '</span></div>';
+  var url = isIOS ? (a.ios && ios(a)) : isAnd ? (a.and && gp(a)) : null;
+  if (url) return '<a class="app" id="' + a.s + '" href="' + url + '">' + head + '<span class="go">' + (isIOS ? "App Store" : "Google Play") + '</span></a>';
+  if (isIOS || isAnd) // not in this phone's store
+    return '<div class="app" id="' + a.s + '">' + head + '<span class="go off">' + (isIOS ? "Yalnız Android" : "Yalnız iOS") + '</span></div>';
+  return '<div class="app" id="' + a.s + '">' + head + '<span class="both">' +
+    (a.ios ? '<a href="' + ios(a) + '">App Store</a>' : '') + (a.and ? '<a href="' + gp(a) + '">Google Play</a>' : '') + '</span></div>';
+}
+var html = "", last = "";
+APPS.forEach(function(a){
+  if (a.k !== last) { html += "<h2>" + (a.k === "oyun" ? "Oyunlar" : "Uygulamalar") + "</h2>"; last = a.k; }
+  html += row(a);
+});
+document.getElementById("list").innerHTML = html;
+// /app/#yalanci highlights that app and scrolls to it
+var h = location.hash.slice(1), el = h && document.getElementById(h);
+if (el) { el.classList.add("hl"); el.scrollIntoView({block:"center"}); }
+</script>
+</body>
+</html>
