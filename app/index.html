@@ -67,7 +67,7 @@ function ios(a){ return "https://apps.apple.com/tr/app/id" + a.ios; }
 function gp(a){ return "https://play.google.com/store/apps/details?id=" + a.and; }
 function esc(t){ return t.replace(/[&<>"]/g, function(c){ return {"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;"}[c]; }); }
 function row(a){
-  var head = '<img src="i/' + a.s + '.jpg" alt="" width="60" height="60" loading="lazy"><div class="t"><b>' + esc(a.n) + '</b><span>' + esc(a.d) + '</span></div>';
+  var head = '<img src="i/' + a.s + '.jpg" alt="" width="60" height="60"><div class="t"><b>' + esc(a.n) + '</b><span>' + esc(a.d) + '</span></div>';
   var url = isIOS ? (a.ios && ios(a)) : isAnd ? (a.and && gp(a)) : null;
   if (url) return '<a class="app" id="' + a.s + '" href="' + url + '">' + head + '<span class="go">' + (isIOS ? "App Store" : "Google Play") + '</span></a>';
   if (isIOS || isAnd) // not in this phone's store
